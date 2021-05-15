@@ -1,0 +1,7 @@
+*.pyc
+/roboto/*
+/timelapse/*
+/image.jpg
+/preview.jpg
+
+/__pycache__/**

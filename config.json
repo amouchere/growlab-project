@@ -1,0 +1,30 @@
+{
+    "time": {
+        "interval_seconds": 600,
+        "start": 8,
+        "end": 20
+    },
+    "preview":{
+        "git_dir":"/home/pi/growlab-preview",
+        "git_path":"git@github.com:amouchere/growlab-preview.git"
+    },
+    "images": {
+        "output_directory": "/home/pi/timelapse/",
+        "encoding": "jpeg",
+        "width": 2592,
+        "height": 1944,
+        "image_quality": 100,
+        "preview_seconds": 1,
+        "vertical_flip": true,
+        "horizontal_flip": false,
+        "meter_mode": "matrix"
+    },
+    "text": {
+        "colour": {
+            "red": 100,
+            "green": 255,
+            "blue": 100
+        },
+        "size": 52
+    }
+}

@@ -1,0 +1,16 @@
+[Unit]
+Description=Growlab-project
+After=ssh-agent.service
+
+[Service]
+User=pi
+Group=pi
+Type=simple
+Restart=always
+RestartSec=1
+StartLimitInterval=0
+WorkingDirectory=/home/pi/growlab-project
+ExecStart=python3 /home/pi/growlab-project/app.py
+
+[Install]
+WantedBy=multi-user.target
