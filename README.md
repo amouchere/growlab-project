@@ -3,9 +3,9 @@
 Record a timelapse and live preview image with sensor data from a DHT22 temperature and humidity sensor.
 
 ![](https://pbs.twimg.com/media/E0DwywWXoAET9dK?format=jpg&name=medium)
-> Example HTML output which can be synced to GitHub Pages
+> The [@alexellisuk](https://twitter.com/alexellisuk) growlab preview
 
-Inspired by: [Original app](https://github.com/alexellis/growlab)
+Inspired by the [Alex Ellis application](https://github.com/alexellis/growlab)
 
 ## Assembling the build
 
@@ -79,29 +79,33 @@ Edit the `config.json` (flip if needed, preview repository path ..)
 
 ```json
 {
+    "time": {
+        "interval_seconds": 600,
+        "start": 8,
+        "end": 20
+    },
     "preview":{
         "git_dir":"/home/pi/growlab-preview",
-        "git_path":"git@github.com:<YOUR NAME HERE>/growlab-preview.git"
+        "git_path":"git@github.com:<>Your github here/growlab-preview.git"
     },
     "images": {
         "output_directory": "/home/pi/timelapse/",
         "encoding": "jpeg",
         "width": 2592,
         "height": 1944,
-        "image_quality": 70,
+        "image_quality": 100,
         "preview_seconds": 1,
         "vertical_flip": true,
         "horizontal_flip": false,
-        "meter_mode": "matrix",
-        "interval_seconds": 600
+        "meter_mode": "matrix"
     },
     "text": {
         "colour": {
-            "red": 255,
-            "green": 200,
-            "blue": 255
+            "red": 100,
+            "green": 255,
+            "blue": 100
         },
-        "size": 48
+        "size": 52
     }
 }
 
@@ -127,3 +131,23 @@ sudo cp ~/growlab-project/growlab-project.service /etc/systemd/system/growlab-pr
 sudo systemctl enable growlab-project.service
 sudo systemctl start growlab-project.service
 ```
+
+### Hardware 
+
+Some pictures of my growlab installation.
+
+* Reclaimed wood
+* Raspberry pi V2 with Wifi USB Stick
+* PI Camera
+* Temparature and Humidity sensor (DHT22)
+* On/Off Button for shutdown the PI without opening an ssh session
+
+
+![The wood structure](./docs/wood_structure.jpg)
+> The wood structure
+
+![The growlab](./docs/global_view.jpg)
+> The growlab
+
+![A view from below](./docs/below_view.jpg)
+> A view from below with the camera and the DHT22 sensor
