@@ -62,17 +62,17 @@ def main():
             logging.info("=== Image capturing : done")
 
             # # Archive for timelapse 
-            # spec.copyFile("{}/image.jpg".format(pwd), config["images"]["output_directory"])
-            # logging.info("=== Image archiving : done")
+            spec.copyFile("{}/image.jpg".format(pwd), config["images"]["output_directory"])
+            logging.info("=== Image archiving : done")
 
-            # # Build preview files (image )
-            # prev.check_preview_directory()
-            # spec.save_html("{}/image.jpg".format(pwd), config["preview"]["git_dir"], readings)
-            # logging.info("=== Preview files : done")
+            # Build preview files (image )
+            prev.check_preview_directory()
+            spec.save_html("{}/image.jpg".format(pwd), config["preview"]["git_dir"], readings)
+            logging.info("=== Preview files : done")
 
-            # # Publish the preview
-            # prev.publish_preview()
-            # logging.info("=== Preview publishing : done")
+            # Publish the preview
+            prev.publish_preview()
+            logging.info("=== Preview publishing : done")
                       
         else:
             logging.info("Current hour: {} No image between {} and {}".format(hour, config["time"]["start"], config["time"]["end"]))
