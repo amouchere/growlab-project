@@ -3,7 +3,7 @@
 import json, logging, os, sys 
 import pytz
 from time import sleep
-from captors import captors
+from sensors import sensors
 from camera import camera
 from specimen import specimen
 from preview import preview
@@ -33,7 +33,7 @@ def main():
     logging.info("Loaded config, saving images every {} seconds to {}".format( config["time"]["interval_seconds"], config["images"]["output_directory"]))
 
     # initialize objects
-    capt = captors()
+    capt = sensors()
     prev = preview(config["preview"])
     cam = camera(config["images"])
     spec = specimen(config["text"], config["images"])
@@ -49,7 +49,7 @@ def main():
         if (config["time"]["start"] < hour < config["time"]["end"]):
             logging.info("Current hour: {}. A capture is possible.")
             logging.info("New capture in progress ... ")
-            # get captors data
+            # get sensors data
             readings = capt.get_readings()
             logging.info(readings)
 
