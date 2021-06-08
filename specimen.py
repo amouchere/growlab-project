@@ -42,7 +42,7 @@ class specimen:
 
     def format(self, readings):
         degree_symbol=u"\u00b0"
-        return "#growlab - {}\nTemperature: {:05.2f}{}C \nHumidity: {:05.2f}%".format(readings["time"], readings["temperature"], degree_symbol, readings["humidity"])
+        return "#growlab - {}\nTemperature: {:05.2f}{}C \nHumidity: {:05.2f}% \nSoil humidity: {} \nBrightness: {}".format(readings["time"], readings["temperature"], degree_symbol, readings["humidity"], readings["soilHumidity"], readings["brightness"])
 
     def save_html(self, input_filename, output_path, readings):
         logger = logging.getLogger("growlab")
