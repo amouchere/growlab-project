@@ -46,7 +46,7 @@ def main():
         datetime_Paris = datetime.now(tz_Paris)
         hour = datetime_Paris.hour
 
-        if (config["time"]["start"] < hour < config["time"]["end"]):
+        if (config["time"]["start"] <= hour <= config["time"]["end"]):
             logging.info("Current hour: {}. A capture is possible.")
             logging.info("New capture in progress ... ")
             # get sensors data

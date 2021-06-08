@@ -1,8 +1,8 @@
 {
     "time": {
         "interval_seconds": 600,
-        "start": 8,
-        "end": 20
+        "start": 0,
+        "end": 24
     },
     "preview":{
         "git_dir":"/home/pi/growlab-preview",
