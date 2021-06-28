@@ -7,6 +7,7 @@ from sensors import sensors
 from camera import camera
 from specimen import specimen
 from preview import preview
+from homedata import homedata
 from datetime import datetime
 
 def main():
@@ -35,7 +36,7 @@ def main():
     # initialize objects
     capt = sensors()
     prev = preview(config["preview"])
-    homedata = homedata(config("homedata"))
+    hmdata = homedata(config["homedata"])
     cam = camera(config["images"])
     spec = specimen(config["text"], config["images"])
     pwd = os.getcwd()
@@ -55,7 +56,7 @@ def main():
             logging.info(readings)
 
             # Send sensors data to homedata application
-            homedata.send(readings)
+            hmdata.send(readings)
             
             # get new image
             cam = camera(config["images"])

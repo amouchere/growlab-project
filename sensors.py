@@ -25,6 +25,7 @@ class sensors:
         serialOutput = serialArduino.readline()
         serialOutput = str(serialOutput, 'ascii')
         serialOutput = serialOutput.replace(' ', '')
+        serialOutput = serialOutput.replace('\r\n', '')
         serialOutputArray = serialOutput.split("-")
         soilHumidity = serialOutputArray[0].replace('hum:', '')
         lux = serialOutputArray[1].replace('lux:', '')
