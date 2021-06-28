@@ -28,13 +28,15 @@ class sensors:
         serialOutputArray = serialOutput.split("-")
         soilHumidity = serialOutputArray[0].replace('hum:', '')
         lux = serialOutputArray[1].replace('lux:', '')
+        soilHumiditypercent = serialOutputArray[2].replace('humpercent:', '')
 
         return {
             "time": time_str,
             "temperature": temperature,
             "humidity": humidity,
             "brightness": lux,
-            "soilHumidity": soilHumidity
+            "soilHumidity": soilHumidity,
+            "soilHumidityPerCent": soilHumiditypercent
         }
 
 

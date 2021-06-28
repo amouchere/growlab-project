@@ -35,6 +35,7 @@ def main():
     # initialize objects
     capt = sensors()
     prev = preview(config["preview"])
+    homedata = homedata(config("homedata"))
     cam = camera(config["images"])
     spec = specimen(config["text"], config["images"])
     pwd = os.getcwd()
@@ -53,6 +54,9 @@ def main():
             readings = capt.get_readings()
             logging.info(readings)
 
+            # Send sensors data to homedata application
+            homedata.send(readings)
+            
             # get new image
             cam = camera(config["images"])
             frame = cam.get_frame()
@@ -61,7 +65,7 @@ def main():
             spec.save_image("{}/image.jpg".format(pwd), frame, readings)
             logging.info("=== Image capturing : done")
 
-            # # Archive for timelapse 
+            # Archive for timelapse 
             spec.copyFile("{}/image.jpg".format(pwd), config["images"]["output_directory"])
             logging.info("=== Image archiving : done")
 

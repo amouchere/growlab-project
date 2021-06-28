@@ -4,6 +4,9 @@
         "start": 0,
         "end": 24
     },
+    "homedata": {
+        "url": "http://homedata:5000/generic"
+    },
     "preview":{
         "git_dir":"/home/pi/growlab-preview",
         "git_path":"git@github.com:amouchere/growlab-preview.git"
