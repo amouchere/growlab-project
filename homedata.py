@@ -24,6 +24,6 @@ class homedata:
         
 
         #print the response text (the content of the requested file):
-        logger.info("response {}", x.text)
+        logger.info("response {}".format(x.text))
 
 

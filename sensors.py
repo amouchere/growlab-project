@@ -8,6 +8,7 @@ import Adafruit_DHT
 import time
 import pytz
 import serial
+import logging
 from datetime import datetime
 
 
@@ -18,6 +19,7 @@ DHT_PIN = 4
 # '/dev/ttyXXXX' : definition du port d ecoute (remplacer 'X' par le bon nom)
 # 9600 : vitesse de communication
 serialArduino = serial.Serial('/dev/ttyUSB0', 9600)
+
 
 class sensors:
 

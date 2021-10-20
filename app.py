@@ -31,7 +31,7 @@ def main():
         logging.error("Error: {}".format(e))
         sys.exit(1)
 
-    logging.info("Loaded config, saving images every {} seconds to {}".format( config["time"]["interval_seconds"], config["images"]["output_directory"]))
+    logging.info("Loaded config, saving images every {} seconds to {}".format( config["timelapse"]["interval_seconds"], config["images"]["output_directory"]))
 
     # initialize objects
     capt = sensors()
@@ -48,7 +48,7 @@ def main():
         datetime_Paris = datetime.now(tz_Paris)
         hour = datetime_Paris.hour
 
-        if (config["time"]["start"] <= hour <= config["time"]["end"]):
+        if (config["timelapse"]["start"] <= hour <= config["timelapse"]["end"]):
             logging.info("Current hour: {}. A capture is possible.")
             logging.info("New capture in progress ... ")
             # get sensors data
@@ -65,10 +65,13 @@ def main():
             # Save image with incrusted data from sensors
             spec.save_image("{}/image.jpg".format(pwd), frame, readings)
             logging.info("=== Image capturing : done")
-
+            
             # Archive for timelapse 
-            spec.copyFile("{}/image.jpg".format(pwd), config["images"]["output_directory"])
-            logging.info("=== Image archiving : done")
+            if (config["timelapse"]["active"]=="true"):
+                spec.copyFile("{}/image.jpg".format(pwd), config["images"]["output_directory"])
+                logging.info("=== Image archiving : done")
+            else:
+                logging.info("=== Image archiving : disabled")
 
             # Build preview files (image )
             prev.check_preview_directory()
@@ -80,10 +83,10 @@ def main():
             logging.info("=== Preview publishing : done")
                       
         else:
-            logging.info("Current hour: {} No image between {} and {}".format(hour, config["time"]["start"], config["time"]["end"]))
+            logging.info("Current hour: {} No image between {} and {}".format(hour, config["timelapse"]["start"], config["timelapse"]["end"]))
 
-        logging.info("... sleep for {} seconds".format(config["time"]["interval_seconds"]))
-        sleep(config["time"]["interval_seconds"])
+        logging.info("... sleep for {} seconds".format(config["timelapse"]["interval_seconds"]))
+        sleep(config["timelapse"]["interval_seconds"])
 
 if __name__ == "__main__":
     while True:
