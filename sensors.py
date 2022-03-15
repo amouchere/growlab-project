@@ -30,7 +30,7 @@ class sensors:
     def get_readings(self):
         # DHT22
         humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
-
+        logging.info("DHT22 temp: {} & humidity: {}".format(temperature, humidity))
         tz_Paris = pytz.timezone('Europe/Paris')
         datetime_Paris = datetime.now(tz_Paris)
         time_str = datetime_Paris.strftime("%Y-%m-%d %H:%M:%S")
@@ -38,6 +38,7 @@ class sensors:
         # Analogic sensor from arduino
         serialOutput = serialArduino.readline()
         serialOutput = str(serialOutput, 'ascii')
+        logging.info("Arduino serial: {}".format(serialOutput))
         serialOutput = serialOutput.replace(' ', '')
         serialOutput = serialOutput.replace('\r\n', '')
         serialOutputArray = serialOutput.split("-")
@@ -53,6 +54,8 @@ class sensors:
 
         temperatureBMP280 = self.sensor.get_temperature()
         pressure = self.sensor.get_pressure()
+
+        logging.info("BMP280 pressure: {}".format(pressure))
 
         return {
             "time": time_str,
