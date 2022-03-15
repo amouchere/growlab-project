@@ -48,15 +48,23 @@ class sensors:
 
         # BMP280
          # Ignore first result since it seems stale
-        temperatureBMP280 = self.sensor.get_temperature()
-        pressure = self.sensor.get_pressure()
-        time.sleep(0.1)
+        temperatureBMP280 = 0
+        pressure = 0
+        try:
+            temperatureBMP280 = self.sensor.get_temperature()
+            pressure = self.sensor.get_pressure()
+            time.sleep(0.1)
 
-        temperatureBMP280 = self.sensor.get_temperature()
-        pressure = self.sensor.get_pressure()
+            temperatureBMP280 = self.sensor.get_temperature()
+            pressure = self.sensor.get_pressure()
 
-        logging.info("BMP280 pressure: {}".format(pressure))
+            logging.info("BMP280 pressure: {}".format(pressure))
 
+        except Exception as e:
+            logging.error(type(e).__name__)
+            logging.exception(e)
+
+        
         return {
             "time": time_str,
             "temperature": temperature,
