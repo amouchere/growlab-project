@@ -94,4 +94,5 @@ if __name__ == "__main__":
             main()
         except Exception as e:
             logging.error(type(e).__name__)
+            logging.exception(e)
             raise e
