@@ -49,7 +49,7 @@ def main():
         hour = datetime_Paris.hour
 
         if (config["timelapse"]["start"] <= hour <= config["timelapse"]["end"]):
-            logging.info("Current hour: {}. A capture is possible.")
+            logging.info("Current hour: {}. A capture is possible.".formmat(hour))
             logging.info("New capture in progress ... ")
             # get sensors data
             readings = capt.get_readings()
