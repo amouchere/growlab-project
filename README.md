@@ -15,10 +15,10 @@ Inspired by the [Alex Ellis application](https://github.com/alexellis/growlab)
 
 ### Features [FR]
 
-* prise de photo à interval régulier
-* stockage des photos pour création d'un timelapse
-* utilisation d'un sensor DHT22 (température et humidité) pour incruster dans les photos
-* publier la dernière photo sur une github page
+* Taking pictures at regular intervals
+* Storage of photos for creation of a timelapse
+* Use of a DHT22 sensor (temperature and humidity) to embed in the pictures
+* Publish the last picture on a github page
 
 ### Configuring the RPi
 
