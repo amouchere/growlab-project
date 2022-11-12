@@ -6,6 +6,7 @@
         "end": 24
     },
     "homedata": {
+        "isActive": "false",
         "url": "http://homedata:5000/generic"
     },
     "preview":{
