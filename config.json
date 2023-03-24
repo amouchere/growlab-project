@@ -1,6 +1,6 @@
 {
     "timelapse": {
-        "active": "false",
+        "active": "true",
         "interval_seconds": 600,
         "start": 0,
         "end": 24
